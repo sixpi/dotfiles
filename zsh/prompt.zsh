@@ -34,7 +34,11 @@ git_prompt_info() {
 }
 
 unpushed() {
-  echo "$(git cherry @{upstream} | wc -l)"
+  $git cherry -v @{upstream} 2>/dev/null
+}
+
+num_unpushed() {
+  $git cherry -v @{upstream} 2>/dev/null | wc -l
 }
 
 need_push() {
@@ -42,7 +46,7 @@ need_push() {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}$(unpushed) unpushed%{$reset_color%} "
+    echo " with %{$fg_bold[magenta]%}$(num_unpushed) unpushed%{$reset_color%} "
   fi
 }
 
