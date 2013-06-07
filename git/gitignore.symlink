@@ -1,3 +1,15 @@
 .DS_Store
-*~
+.svn
 *.swp
+*.rbc
+
+
+# emacs artifacts
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
