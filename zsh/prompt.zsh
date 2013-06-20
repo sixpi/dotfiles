@@ -84,22 +84,25 @@ todo() {
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo "%{$fg_bold[cyan]%}%~%{$reset_color%}"
+}
+
+login_info() {
+  echo "%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[green]%}%m%{$reset_color%}"
 }
 
 virtenv() {
   if [ -n "$VIRTUAL_ENV" ]
   then
-    echo "(env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})"
+    echo "(venv: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})"
   else
     echo ""
   fi
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(login_info) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="$(virtenv) %{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
-  export RPROMPT2="$(virtenv) %{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT="$(virtenv) $(rb_prompt)%{$fg_bold[cyan]%}%!!%{$reset_color%}"
 }
 
 precmd() {
