@@ -8,3 +8,11 @@ EDITOR=vi
 test -n "$HAVE_VIM" && EDITOR=vim
 test -n "$HAVE_EMACS" && EDITOR="emacsclient -t -a 'emacs -nw -q'"
 export EDITOR
+
+if [[ -e /lib/terminfo/x/xterm-256color ]]; then
+    export TERM=xterm-256color
+fi
+
+if [[ -e /usr/share/terminfo/x/xterm-256color ]]; then
+    export TERM=xterm-256color
+fi
