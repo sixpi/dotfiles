@@ -6,7 +6,11 @@ EMACS_VERSION=$(emacs --version)
 # set editor, prefer emacs if we have it
 EDITOR=vi
 test -n "$HAVE_VIM" && EDITOR=vim
-test -n "$HAVE_EMACS" && EDITOR="emacsclient -t -a 'emacs -nw -q'"
+if [ -n "$HAVE_EMACS" ]; then
+    EDITOR="emacsclient -t"
+    ALTERNATE_EDITOR="emacs -nw"
+    export ALTERNATE_EDITOR
+fi
 export EDITOR
 
 if [[ -e /lib/terminfo/x/xterm-256color ]]; then

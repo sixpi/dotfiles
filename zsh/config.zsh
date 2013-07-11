@@ -45,3 +45,7 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
+
+# bash style word selection
+autoload -U select-word-style
+select-word-style bash
