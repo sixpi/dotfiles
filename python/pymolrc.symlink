@@ -1,0 +1,18 @@
+_ feedback push
+_ feedback disable,all,everything
+
+# Make stuff look nicer
+set antialias = 2
+
+set fetch_path, /home/bing/data/pdb
+# set group_auto_mode, 2
+
+# aliases
+alias autogrp, set group_auto_mode=2
+alias noautogrp, set group_auto_mode=0
+
+viewport 900, 750
+
+_ feedback pop
+
+print "Done loading .pymolrc"
