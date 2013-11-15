@@ -105,7 +105,11 @@ set_prompt () {
   export RPROMPT="$(virtenv) $(rb_prompt)%{$fg_bold[cyan]%}%!!%{$reset_color%}"
 }
 
-precmd() {
-  title "zsh" "%m" "%55<...<%~"
+precmd () {
+  title "zsh" "%n@%m" "%55<...<%2c"
   set_prompt
+}
+
+preexec () {
+  title "$1" "%n@%m" "%35<...<%2c"
 }
