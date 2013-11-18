@@ -4,6 +4,10 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
+if [[ -s "/etc/zsh_command_not_found" ]]; then
+    . "/etc/zsh_command_not_found"
+fi
+
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
