@@ -8,7 +8,7 @@ EDITOR=vi
 test -n "$HAVE_VIM" && EDITOR=vim
 if [ -n "$HAVE_EMACS" ]; then
     EDITOR="emacsclient -t"
-    ALTERNATE_EDITOR="emacs -nw"
+    ALTERNATE_EDITOR="emacs-nw"
     export ALTERNATE_EDITOR
 fi
 export EDITOR
