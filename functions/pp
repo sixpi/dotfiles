@@ -1,0 +1,3 @@
+pp() {
+    ps auxf | pager
+}

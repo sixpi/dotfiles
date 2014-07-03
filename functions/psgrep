@@ -1,0 +1,4 @@
+#!/usr/bin/zsh -f
+psgrep () {
+    ps axuf | grep -v grep | grep "$@" -i --color=auto
+}
