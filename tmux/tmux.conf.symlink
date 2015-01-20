@@ -1,0 +1,9 @@
+set -g utf8
+set-window-option -g utf8 on
+
+set -g default-terminal "screen-256color"
+
+set -g history-limit 10000
+
+set-option -g prefix C-z
+bind-key C-z send-prefix
