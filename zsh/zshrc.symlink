@@ -41,5 +41,10 @@ else
         source $file
     done
 
+    if [[ -a ~/.localrc.post ]]
+    then
+        source ~/.localrc.post
+    fi
+
     unset config_files
 fi
