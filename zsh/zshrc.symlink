@@ -42,8 +42,4 @@ else
     done
 
     unset config_files
-
-    # RVM, needs to be at the end
-    [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
-    [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 fi
