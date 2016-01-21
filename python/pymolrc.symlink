@@ -15,4 +15,4 @@ viewport 900, 750
 
 _ feedback pop
 
-print "Done loading .pymolrc"
+print("Done loading .pymolrc")
