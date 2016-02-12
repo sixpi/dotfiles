@@ -1,6 +1,0 @@
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-
-VENVWRAPPER=`which virtualenvwrapper.sh`
-[[ -r $VENVWRAPPER ]] && . $VENVWRAPPER
-unset VENVWRAPPER
