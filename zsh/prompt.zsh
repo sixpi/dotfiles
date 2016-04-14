@@ -62,15 +62,6 @@ ruby_version() {
   fi
 }
 
-rb_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]
-  then
-      echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
-  else
-      echo ""
-  fi
-}
-
 # This keeps the number of todos always available the right hand side of my
 # command line. I filter it to only count those tagged as "+next", so it's more
 # of a motivation to clear out the list.
@@ -91,25 +82,7 @@ login_info() {
   echo "%{$fg_bold[cyan]%}%n%{$fg_bold[white]%}@%{$fg_bold[green]%}%m%{$reset_color%}"
 }
 
-virtenv() {
-  if [ -n "$VIRTUAL_ENV" ]
-  then
-    echo "(venv: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})"
-  else
-    echo ""
-  fi
-}
-
 export PROMPT=$'\n$(login_info) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="$(virtenv) $(rb_prompt)%{$fg_bold[cyan]%}%!!%{$reset_color%}"
-}
-
-precmd () {
-  title "zsh" "%n@%m" "%55<...<%2c"
-  set_prompt
-}
-
-preexec () {
-  title "$1" "%n@%m" "%35<...<%2c"
+  export RPROMPT="%{$fg_bold[cyan]%}%!!%{$reset_color%}"
 }

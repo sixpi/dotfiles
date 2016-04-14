@@ -14,3 +14,5 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias ssh_scc="ssh -t scc '/usr3/graduate/sixpi/bin/zsh'"
+
+alias v="view"

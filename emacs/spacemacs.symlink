@@ -18,11 +18,10 @@
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-enable-help-tooltip t)
+		      auto-completion-enable-help-tooltip t)
      better-defaults
      git
      ibuffer
-     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -31,8 +30,7 @@
      spacemacs-layouts
      ;; languages
      (c-c++ :variables
-            c-c++-enable-clang-support t)
-     clojure
+	    c-c++-enable-clang-support t)
      emacs-lisp
      go
      html
@@ -41,7 +39,7 @@
      markdown
      php
      (python :variables
-             python-test-runner 'pytest)
+	     python-test-runner 'pytest)
      ansible
      yaml
      )
@@ -64,6 +62,18 @@ before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
+   ;; possible. Set it to nil if you have no way to use HTTPS in your
+   ;; environment, otherwise it is strongly recommended to let it set to t.
+   ;; This variable has no effect if Emacs is launched with the parameter
+   ;; `--insecure' which forces the value of this variable to nil.
+   ;; (default t)
+   dotspacemacs-elpa-https t
+   ;; Maximum allowed time in seconds to contact an ELPA repository.
+   dotspacemacs-elpa-timeout 5
+   ;; If non nil then spacemacs will check for updates at startup
+   ;; when the current branch is not `develop'. (default t)
+   dotspacemacs-check-for-update t
    ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
    ;; is `emacs' then the `holy-mode' is enabled at startup.
    dotspacemacs-editing-style 'emacs
@@ -79,25 +89,30 @@ before layers configuration."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
    dotspacemacs-startup-lists '(recents projects)
+   ;; Number of recent files to show in the startup buffer. Ignored if
+   ;; `dotspacemacs-startup-lists' doessn't include `recents'. (default 5)
+   dotspacemacs-startup-recent-list-size 5
+   ;; Default major mode of the scratch buffer (default `text-mode')
+   dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(zenburn
-                         solarized-light
-                         solarized-dark
-                         spacemacs-light
-                         spacemacs-dark
-                         leuven
-                         monokai)
+			 solarized-light
+			 solarized-dark
+			 spacemacs-light
+			 spacemacs-dark
+			 leuven
+			 monokai)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.3)
+			       :size 13
+			       :weight normal
+			       :width normal
+			       :powerline-scale 1.3)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -132,7 +147,7 @@ before layers configuration."
    dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX."
    dotspacemacs-fullscreen-use-non-native nil
@@ -186,9 +201,9 @@ layers configuration."
   (c-add-style
    "linux-tabs-only"
    '("linux" (c-offsets-alist
-              (arglist-cont-nonempty
-               c-lineup-gcc-asm-reg
-               c-lineup-arglist-tabs-only))))
+	      (arglist-cont-nonempty
+	       c-lineup-gcc-asm-reg
+	       c-lineup-arglist-tabs-only))))
 
   (c-add-style
    "bsd-2-sp"
@@ -201,18 +216,17 @@ layers configuration."
   (add-to-list 'c-default-style '(c-mode . "bsd-4-sp"))
 
   (add-hook 'c-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c C-t") 'ff-find-other-file)
-              (local-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
+	    (lambda ()
+	      (local-set-key (kbd "C-c C-t") 'ff-find-other-file)
+	      (local-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
-              (setq-default indent-tabs-mode nil)))
+	      (setq-default indent-tabs-mode nil)))
 
   (defun bing/c-linux-mode ()
     (interactive)
     (setq indent-tabs-mode t)
     (setq tab-width 8)
-    (c-set-style "linux"))
-  )
+    (c-set-style "linux")))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
