@@ -1,0 +1,4 @@
+#!/usr/bin/zsh -f
+view () {
+    xdg-open "$@" 2>/dev/null
+}
