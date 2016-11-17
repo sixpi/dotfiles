@@ -17,7 +17,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = emacsclient -t -a "emacs -nw -q"
+        editor = $EDITOR
         pager = less -x4 -F
 [apply]
         whitespace = nowarn

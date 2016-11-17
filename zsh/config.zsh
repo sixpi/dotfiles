@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)%# '
 else
@@ -9,8 +8,6 @@ if [[ -s "/etc/zsh_command_not_found" ]]; then
     . "/etc/zsh_command_not_found"
 fi
 
-=======
->>>>>>> upstream/master
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
